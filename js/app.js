@@ -59,10 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-
   //search box filter autocomplete
-
-
   $( function() {
     var availableTags = [
       "Victoria Chambers",
@@ -97,7 +94,8 @@ var item;
       }
 
   let trafficOptions = {
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
     aspectRatio: 2.5,
     animation: {
       duration: 200
@@ -244,7 +242,9 @@ var item;
   };
 
   const dailyOptions = {
-    maintainAspectRatio: true,
+    responsive: true,
+    maintainAspectRatio: false,
+    aspectRatio: 1,
     scales: {
       yAxes: [{
         ticks: {
@@ -255,6 +255,7 @@ var item;
     animation: {
       duration: 200
     },
+    // responsive:false,
     legend : {
       display: false
     },
@@ -293,7 +294,9 @@ var item;
 
   const mobileOptions = {
     cutoutPercentage: 60,
-    maintainAspectRatio: true,
+    aspectRatio: 0.9,
+    responsive: true,
+    maintainAspectRatio: false,
     animation: {
       duration: 200
     },
@@ -308,8 +311,8 @@ var item;
     },
     layout: {
               padding: {
-                  left: 70,
-                  right: 200,
+                  left: 30,
+                  right: 80,
                   top: 20,
                   bottom: 20
               }
@@ -340,6 +343,19 @@ var item;
         alert(`Message successfully sent to: ${user.value}`);
       }
     });
+
+    //search box filter autocomplete
+    $( function() {
+      var availableTags = [
+        "Victoria Chambers",
+        "Dale Byrd",
+        "Dawn Wood",
+        "Dan Oliver"
+      ];
+      $( "#user-field" ).autocomplete({
+        source: availableTags
+      });
+    } );
 
 //local storage
 

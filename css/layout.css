@@ -1,7 +1,7 @@
 .container {
   height: 100vh;
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: auto;
   grid-template-rows: auto;
   grid-template-areas:
     "header"
@@ -62,6 +62,7 @@ nav {
 main {
   grid-area: main;
   display: grid;
+  grid-template-columns: auto;
 }
 
 .headline {
@@ -88,6 +89,10 @@ main {
   width: 90%;
 }
 
+.traffic h3, .daily h3, .mobile h3 {
+  font-size: 1em;
+}
+
 .traffic {
   display: block;
 }
@@ -102,6 +107,10 @@ main {
   margin-left: auto;
 }
 
+.traffic h3 {
+  padding-left: 60px;
+}
+
 #traffic-nav {
   margin-left: auto;
   list-style-type: none;
@@ -110,6 +119,12 @@ main {
 .traffic-nav-link {
   padding: 10px;
   height: 1em;
+}
+
+.widget-container-full {
+  position: relative;
+  width: 95vw;
+  height: 50vh;
 }
 
 .daily, .mobile {
@@ -132,10 +147,38 @@ main {
 
 .widget-container-full, .widget-container-half {
   width: 95vw;
-  display: flex;
-  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+}
+
+.social-image {
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+  background-color: #7377bf;
+  border-radius: 50%;
+  border-style: none;
+}
+
+.icon-twitter, .icon-facebook, .icon-google-plus {
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+  display: block;
+  margin: auto;
+}
+
+.social-text {
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#num{
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .toggle {
@@ -192,7 +235,7 @@ main {
   border-style: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     .container {
         grid-template-columns: 55px 1fr;
         grid-template-rows: 60px 1fr;
@@ -204,24 +247,53 @@ main {
       width: 55px;
     }
 
-    .main {
-      grid-template-columns: 50%;
+    main {
+      grid-template-columns: minmax(50%-55px) 50%;
+    }
+
+    .traffic h3, .daily h3, .mobile h3 {
+      font-size: 1.5em;
+    }
+
+    .main-header {
+      grid-column: 1 / span 2;
     }
 
     .main-header-search input{
       width: 30%;
     }
 
+    .alert {
+      grid-column: 1 / span 2;
+
+    }
+
+    .traffic-header {
+      padding-left: 60px;
+    }
+
     .widget-container-full {
+      position: relative;
       width: 95vw;
       display: flex;
       flex-direction: column;
     }
 
-    .widget-container-half {
-      width: 45vw;
+    .widget-container-daily {
+      position: relative;
+      width: 47vw;
+      height: 30vh;
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .widget-container-mobile {
+      position: relative;
+      width: 47vw;
+      height: 30vh;
+      display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
     }
 
@@ -232,7 +304,10 @@ main {
     .social {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
     }
+
+
 
     .daily, .members, .message {
       grid-column: 1 / span 1;
@@ -268,8 +343,12 @@ main {
         width: 55px;
       }
 
-      .main {
+      main {
         grid-template-columns: 50%;
+      }
+
+      .traffic h3, .daily h3, .mobile h3 {
+        font-size: 3em;
       }
 
       .main-header, .alert, .traffic, .social {
@@ -293,13 +372,39 @@ main {
         padding-left: 20px;
       }
 
-      .traffic h3 {
-        padding-left: 60px;
-      }
-
       .social {
         display: flex;
         flex-direction: row;
+      }
+
+      .social-image {
+        width: 150px;
+        height: 150px;
+        margin: 20px;
+        background-color: #7377bf;
+        border-radius: 50%;
+        border-style: none;
+      }
+
+      .icon-twitter, .icon-facebook, .icon-google-plus {
+        width: 100px;
+        height: 100px;
+        padding: 40px;
+        display: block;
+        margin: auto;
+      }
+
+      .social-text {
+        font-size: 2em;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      #num{
+        font-size: 3em;
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
       .daily, .members, .message {
@@ -318,7 +423,7 @@ main {
         flex-wrap: wrap;
       }
 
-      .widget-container-half {
+      .widget-container-mobile, .widget-container-mobile {
         width: 45vw;
         display: flex;
         flex-direction: row;

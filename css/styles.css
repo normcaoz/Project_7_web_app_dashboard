@@ -103,10 +103,6 @@ margin-top: auto;
 margin-bottom: auto;
 }
 
-.traffic h3, .daily h3, .mobile h3 {
-  font-size: 3em;
-}
-
 .traffic-nav-link {
   cursor: pointer;
 }
