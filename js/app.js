@@ -255,7 +255,6 @@ var item;
     animation: {
       duration: 200
     },
-    // responsive:false,
     legend : {
       display: false
     },
